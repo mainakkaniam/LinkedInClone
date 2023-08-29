@@ -1,0 +1,89 @@
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    flex-direction: column;
+  }
+  
+  .loginBox {
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 70vh;
+  }
+  
+  .logo {
+    width: 120px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+  .button {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:16px;
+    background: linear-gradient(#0000, rgb(0 0 0/40%)) top/100% 800%;
+    background-color: #0a66c2;
+    transition: 0.5s;
+  }
+  .button:hover {
+    background-position: bottom;//using this styling method the text does not get darken as would hv happed if brightness was reduced
+  }
+  .theory{
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .theory>p{
+    font-size: 18px;
+  }
+  .theory>h1{
+    font-weight: 500;
+  }
+  input{
+    height: 7vh;
+  }
+  .forgot-password{
+    background: none;
+    border: none;
+    font-size: 16px;
+    text-align: left;
+    color: #0a66c2;
+  }
+  .or{
+    margin-top: 3vh;
+    h2 {
+      width: 100%; 
+      text-align: center; 
+      border-bottom: 1px solid grey; 
+      line-height: 0.1em;
+      margin: 10px 0 20px; 
+   } 
+   
+   h2 span { 
+       background:#fff; 
+       padding:0 10px; 
+       color:grey;
+   }
+  }
+  .join{
+    span{
+      color:#0a66c2;
+      font-weight: bold;
+      cursor:pointer
+    }
+  }

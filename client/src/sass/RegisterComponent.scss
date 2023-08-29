@@ -1,0 +1,82 @@
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    flex-direction: column;
+    .register-box{
+        width: 350px;
+        background-color: white;
+        text-align: center;
+        padding: 2.5vh 0;
+        border-radius:3px;
+      }
+      .email ,.password{
+        margin-bottom: 2vh;
+        h3{
+            text-align: left;
+            margin-left: 25px;
+            margin-bottom: 5px;
+        }
+      }
+      input{
+        width: 300px;
+        height: 30px;
+        height: 40px;
+        font-size: 17px;
+        padding:5px;
+      }
+      .join{
+        button{
+        color: white;
+    background-color: #0a66c2;
+    font-size: 18px;
+    width: 300px;
+    margin-top: 2vh;
+    height: 51px;
+    border-radius: 6px;
+      }
+    }
+    img{
+        width:120px;
+    }
+    .logo{
+        margin:auto
+    }
+    .or{
+        margin:auto;
+        margin-top: 3vh;
+        h2 {
+            width: 84%;
+            text-align: center;
+            border-bottom: 1px solid grey;
+            line-height: 0.1em;
+            margin: 10px 0 20px;
+              margin-left: 0px;
+            margin-left: 8%;
+       } 
+       
+       h2 span { 
+           background:#fff; 
+           padding:0 10px; 
+           color:grey;
+       }
+      }
+      .moto{
+        padding: 2.5vh 0;
+        font-size: 28px;
+        text-align: center;
+      }
+      .sign{
+        margin-top: 3vh;
+        font-size: 18px;
+        span{
+            color:#0a66c2;
+            cursor:pointer;
+        }
+      }
+  }
+
+
+
