@@ -11,22 +11,31 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import "../../sass/Navbar.scss";
 
 const Navbar = () => {
-    const [inputStorerExpanded, setInputStorerExpanded] = useState(false);
+    const [dots, setDots] = useState(false);
     const [modal,setModal] = useState(false);
 
   useEffect(() => {
       document.addEventListener("click", handleClick, true);
   }, []);
     
-    const refOne = useRef(null);
+  const refOne = useRef(null);
+  const refTwo=useRef(null);
 
     const handleClick = (e) => {
         if (!refOne.current.contains(e.target)) {
             console.log("outside")
             setModal(false)
         }
-        else setModal(true);
-    }
+      else setModal(true);
+      
+      if (!refTwo.current.contains(e.target))
+        if (dots)
+          setDots(false);
+  }
+  
+  const handleSecondClick = () => {
+    setDots(!dots);
+  }
 
   return (
     <div className="navbar" style={{ display: "flex" }}>
@@ -71,7 +80,7 @@ const Navbar = () => {
           <Person2RoundedIcon fontSize='large'/>
           Me
         </div>
-        
+        <div className={`might-be-replaced ${dots ? 'dropdown' : ''}`}>
         <div className="business common">
           <AppsRoundedIcon fontSize='large'/>
           For Business
@@ -79,7 +88,8 @@ const Navbar = () => {
         <div className="premium common">
           Try Premium for Free
         </div>
-        <div className="three-dots">
+        </div>
+        <div className="three-dots" ref={refTwo} onClick={handleSecondClick}>
           <MoreHorizIcon fontSize="large" />
         </div>
       </div>

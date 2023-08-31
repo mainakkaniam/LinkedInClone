@@ -75,6 +75,9 @@
     width: 54vw;
     justify-content: space-around;
   }
+  .might-be-replaced{
+    display:flex;
+  }
   .premium{
     width: 90px;
     color:peru;
@@ -111,7 +114,7 @@
 
   }
   @media(min-width:600px) and (max-width:800px){
-   .business , .premium{
+   .might-be-replaced{
     display:none;
    }
    .three-dots{
@@ -120,6 +123,13 @@
    }
    .three-dots:hover{
     color:black;
+   }
+   .dropdown{
+    display:flex;
+    position:fixed;
+    top:70px;
+    right:10px;
+    box-shadow: 1px 2px 4px grey;
    }
   }
   @media(max-width:600px){
