@@ -1,0 +1,102 @@
+.navbar{
+    height: 70px;
+    align-items: center;
+}
+.smalogo{
+    margin-left: 2vw;
+    img{
+        width: 45px;
+    }
+}
+.total-input{
+    margin-left: 10px;
+    width: 25vw;
+    margin-right: 5vw;
+    max-width: 550px;
+    margin-bottom: 4px;
+}
+.input-storer{
+    display: flex;
+    background-color: blue;
+    width:300px;
+    background-color:#edf3f8;
+    transition: width .5s ease;
+    border-radius:4px;
+
+    input{
+        height: 40px;
+        width: 100%;
+        background-color:#edf3f8;
+        border:none;
+        outline:none
+    }
+}
+.expanded{
+    width:28vw;
+    border:3px solid black;
+    input{
+        font-size:15px;
+    }
+}
+.search-icon{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#edf3f8;
+}
+.modal {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure the modal is on top of other content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .common{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin-right: 14px;
+    color:grey;
+  }
+  .common:hover{
+    color:black;
+  }
+  .icons{
+    display: flex;
+    gap: 0;
+    width: 54vw;
+    justify-content: space-around;
+  }
+  .premium{
+    width: 90px;
+    color:peru;
+    text-decoration: underline;
+  }
+  .premium:hover{
+    color:#915907;
+  }
+  .search-for-small-screen {
+    display:none;
+  }
+  @media(max-width:1164px){
+  .total-input{
+    display:none;
+  }
+  .search-for-small-screen{
+    display:flex;
+    text-align:center;
+    margin-left:15px;
+  }
+  .icons{
+    width:78vw;
+  }
+
+  }

@@ -4,6 +4,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../firebaseConfig'
 import {useNavigate} from "react-router-dom"
 import Loader from '../components/common/Loader'
+import Navbar from '../components/common/Navbar'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Home = () => {
 
   return (
     <div>
-      {loading?<Loader/>:<HomeComponent />}
+      {loading?<Loader/>:<><Navbar/><HomeComponent /></>}
     </div>
   )
 }
