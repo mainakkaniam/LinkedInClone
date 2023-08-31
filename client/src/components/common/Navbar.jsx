@@ -29,8 +29,7 @@ const Navbar = () => {
       else setModal(true);
       
       if (!refTwo.current.contains(e.target))
-        if (dots)
-          setDots(false);
+        setDots(false);
   }
   
   const handleSecondClick = () => {
