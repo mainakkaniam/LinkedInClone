@@ -7,6 +7,7 @@ import MessageRoundedIcon from '@mui/icons-material/MessageRounded';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import "../../sass/Navbar.scss";
 
 const Navbar = () => {
@@ -78,7 +79,13 @@ const Navbar = () => {
         <div className="premium common">
           Try Premium for Free
         </div>
+        <div className="three-dots">
+          <MoreHorizIcon fontSize="large" />
+        </div>
       </div>
+      <div className="chat2">
+          <MessageRoundedIcon fontSize='large'/>
+        </div>
     </div>
   );
 }

@@ -32,7 +32,7 @@
     }
 }
 .expanded{
-    width:28vw;
+    width:28vw;//dont use max -width otherwise transition width wont work
     border:3px solid black;
     input{
         font-size:15px;
@@ -86,7 +86,17 @@
   .search-for-small-screen {
     display:none;
   }
-  @media(max-width:1164px){
+  .chat2{
+    display:none;
+  }
+  .three-dots{
+    display:none;
+  }
+  .business{
+    border-left: 1px solid grey;
+    padding-left: 18px;
+  }
+  @media(max-width:1200px){
   .total-input{
     display:none;
   }
@@ -96,7 +106,46 @@
     margin-left:15px;
   }
   .icons{
-    width:78vw;
+    width:90vw;
   }
 
+  }
+  @media(min-width:600px) and (max-width:800px){
+   .business , .premium{
+    display:none;
+   }
+   .three-dots{
+    display:flex;
+    color:grey;
+   }
+   .three-dots:hover{
+    color:black;
+   }
+  }
+  @media(max-width:600px){
+    .navbar{
+      justify-content: space-around;
+    }
+    .total-input{
+      display:block;
+      margin:0;
+    }
+    .total-input{
+      width:300px;
+      margin-left:0;
+    }
+    .expanded{
+      width:300px;
+      transition: smooth;
+    }
+    .icons{
+     display:none;
+    }
+    .smalogo{
+      margin:0;
+    }
+    .chat2{
+      display:block;
+      color:grey;
+    }
   }
