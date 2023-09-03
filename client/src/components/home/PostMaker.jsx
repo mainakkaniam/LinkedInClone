@@ -6,6 +6,10 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import ArticleIcon from '@mui/icons-material/Article';
 import FadeLoader from "react-spinners/FadeLoader";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
+import CelebrationIcon from '@mui/icons-material/Celebration';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Modal } from '@mui/material';
 
 const PostMaker = () => {
@@ -79,7 +83,21 @@ const PostMaker = () => {
                 </div>
               </div>
               <div className="post-input">
-                <input type="text" />
+                <textarea type="text" />
+              </div>
+              <div className="smiley">
+                <InsertEmoticonIcon sx={{fontSize:"2.5rem"}}/>
+              </div>
+              <div className="tabs">
+                <div className="photo"><InsertPhotoIcon sx={{fontSize:"2.5rem"}} /></div>
+                <div className="cal"><CalendarMonthIcon sx={{fontSize:"2.5rem"}}/></div>
+                <div className="celebration"><CelebrationIcon  sx={{fontSize:"2.5rem"}}/></div>
+                <div className="tindots"><MoreHorizIcon sx={{fontSize:"2.5rem"}}/></div>
+              </div>
+              <div style={{height:"1px",backgroundColor:"grey"}}/>
+              <div className="ending">
+                <div className="clock"><AccessTimeFilledIcon sx={{fontSize:"2.5rem"}}/></div>   
+                <button className="push-post">Post</button>
               </div>
             </div>
           </Modal>
