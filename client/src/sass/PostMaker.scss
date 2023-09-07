@@ -126,10 +126,134 @@
     margin-top:4px;
 }
 
+.words{
+    position:absolute;
+   
+    
+}
+//you can use sliding combinator for activating styling of b on hovering on a only when b is immediately after a
+.words-1{
+        display:flex;
+        opacity:0;
+        font-size: 18px;
+        padding: 9px;
+        bottom: 21%;
+        background-color: white;
+        box-shadow: 0px 3px 5px 1px rgba(128,128,128,0.72);
+        border-radius: 11px;
+        left: 1%;
+        transition:0.3s ease;
+    }
+    .photo:hover + .words-1{
+        transform:translateY(-13px);
+        opacity:1;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+     .words-2{
+        display:flex;
+        opacity:0;
+        font-size: 18px;
+        padding: 9px;
+        bottom: 21%;
+        background-color: white;
+        box-shadow: 0px 3px 5px 1px rgba(128,128,128,0.72);
+        border-radius: 11px;
+        left: 9%;
+        transition:0.3s ease;
+    }
+    .cal:hover + .words-2{
+        transform:translateY(-13px);
+        opacity:1;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+     .words-3{
+        display:flex;
+        opacity:0;
+        font-size: 18px;
+        padding: 9px;
+        bottom: 21%;
+        background-color: white;
+        box-shadow: 0px 3px 5px 1px rgba(128,128,128,0.72);
+        border-radius: 11px;
+        left: 16%;
+        transition:0.3s ease;
+    }
+    .celebration:hover + .words-3{
+        transform:translateY(-13px);
+        opacity:1;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+    .words-4{
+        display:flex;
+        opacity:0;
+        font-size: 18px;
+        padding: 9px;
+        bottom: 21%;
+        background-color: white;
+        box-shadow: 0px 3px 5px 1px rgba(128,128,128,0.72);
+        border-radius: 11px;
+        left: 34%;
+        transition:0.3s ease;
+    }
+    .tindots:hover + .words-4{
+        transform:translateY(-13px);
+        opacity:1;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    //since here the target is descendent of a so no worry
+    .words-0{
+        display:flex;
+        opacity:0;
+        font-size: 18px;
+        padding: 9px;
+        bottom: 33.7%;
+        background-color: white;
+        box-shadow: 0px 3px 5px 1px rgba(128,128,128,0.72);
+        border-radius: 11px;
+        left: 1%;
+        transition:0.3s ease;
+        color:black;
+    }
+    .smiley:hover .words-0{
+        transform:translateY(-13px);
+        opacity:1;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+    .words-5{
+        display:flex;
+        opacity:0;
+        font-size: 18px;
+        padding: 9px;
+        bottom: 8%;
+        background-color: white;
+        box-shadow: 0px 3px 5px 1px rgba(128,128,128,0.72);
+        border-radius: 11px;
+        left: 72%;
+        transition:  0.3s ease;
+    }
+    .clock:hover + .words-5{
+        transform:translateY(-13px);
+        opacity:1;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+
+
 .ending{
     display: flex;
     justify-content: end;
     align-items: center;
+}
+
+.active{
+    background-color:#0a66c2;
+    color:white;
+    cursor:pointer;
+}
+.active:hover{
+    background-color:rgb(17, 17, 52);
+    transition:0.5s ease;
 }
 
 .post-maker{
@@ -173,6 +297,7 @@ button:hover{
         height:63px;
         display: flex;
         justify-content: space-around;
+        align-items: center;
 
         .media , .event , .article{
             display: flex;
@@ -183,7 +308,20 @@ button:hover{
     }
 }
 
-
+.label{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:17px;
+    height: 70%;
+    padding: 6px;
+    border-radius:4px;
+    color:grey;
+}
+.label:hover{
+    background-color: #e4e4e5;
+    transition:0.3s ease;
+}
 
 @media(max-width:1176px)
 {
