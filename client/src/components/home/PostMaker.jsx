@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "../../sass/PostMaker.scss";
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -12,7 +12,9 @@ import CelebrationIcon from '@mui/icons-material/Celebration';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import { Modal } from '@mui/material';
-import { handlePost } from '../../api/FirestoreAPI';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+import { toast } from 'react-toastify';
 
 const PostMaker = () => {
   const timeoutRef = useRef(null);//you need to use useRef here coz assume u use let and then assign timeout to
@@ -21,6 +23,86 @@ const PostMaker = () => {
   const [openParentModal, setOpenParentModal] = useState(false);
   const [openChildModal, setOpenChildModal] = useState(false);
   const [input, setInput] = useState("");
+  const [name, setName] = useState('');
+  const [avatar, setAvatar] = useState('');
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const apiUrl = `http://localhost:3001/api/users/${user.email}`;
+
+        // Make a GET request to the API
+        fetch(apiUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // Check if the response contains 'data' property
+            if (data && data.data) {
+              // Extract 'data.name' and 'data.image' from the response
+              const { name, image } = data.data;
+
+              // Update state variables 'name' and 'avatar'
+              setName(name);
+              setAvatar(image);
+            }
+          })
+          .catch((error) => {
+            console.error('Error fetching user data:', error);
+          });
+      }
+    }
+    )
+  }, []);
+
+  const handlePost = () => {
+    console.log("dhukchi ami");
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Step 1: Fetch the user's current posts
+        fetch(`http://localhost:3001/api/users/${user.email}`)
+          .then((response) => response.json())
+          .then((data) => {
+            //when using console.log to print data dont use an additional string like "data="+data
+            if (data && data.data.posts) {
+              const currentPosts = data.data.posts;
+              console.log(currentPosts)
+  
+              // Step 2: Append the new post (input value) to the current posts
+              const updatedPosts = [...currentPosts, input];
+              console.log(updatedPosts)
+  
+              // Step 3: Send a PUT request to update the user's posts
+              fetch(`http://localhost:3001/api/users/${user.email}`, {
+                method: "PUT",
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ posts: updatedPosts }),
+              })
+                .then((response) => {
+                  if (response.ok) {
+                    toast.success("Post Added successfully !")
+                    // You can also update the local state or do other actions as needed
+                  } else {
+                    toast.error("Error while adding post !")
+                  }
+                })
+                .catch((error) => { 
+                  console.error("Error:", error);
+                });
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    });
+  };
+  
 
   const handleOpenParentModal = () => {
     setOpenParentModal(true);
@@ -46,7 +128,7 @@ const PostMaker = () => {
     <div className="post-maker">
       <div className="first-line">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGv0ZIrLidHrXmxdSY38qwW3_FyQZhJo-sFQ&usqp=CAU"
+          src={avatar}
           alt=""
         />
         <button onClick={handleOpenParentModal}>Start your post</button>
@@ -75,12 +157,12 @@ const PostMaker = () => {
                 onClick={handleCloseChildModal} />
               <div className="top-left">
               <img
-             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGv0ZIrLidHrXmxdSY38qwW3_FyQZhJo-sFQ&usqp=CAU"
+             src={avatar}
              alt=""
                 />
                 <div className="naming">
                   <div className="small-top">
-                    <span>Lionel Messi</span>
+                    <span>{name}</span>
                     <ArrowDropDownIcon sx={{ paddingBottom: "2px", cursor: "pointer" ,fontSize:"2.5rem"}} />
                   </div>
                   <span>Post to Anyone</span>
@@ -108,7 +190,7 @@ const PostMaker = () => {
                 <div className="clock"><AccessTimeFilledIcon sx={{ fontSize: "2.5rem" }} /></div>  
                 <div className=" words words-5">Schedule your post</div>
                 <button className={`push-post ${input !== "" ? 'active' : ''}`}
-                  onClick={() => { handlePost(input); handleCloseChildModal(); }}
+                  onClick={() => { handlePost(); handleCloseChildModal(); }}
                 >Post</button>
               </div>
             </div>

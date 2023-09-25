@@ -13,7 +13,7 @@ const RegisterComponent = () => {
     try {
         await GoogleAPI();
         // Sign-in was successful, you can navigate or perform other actions
-        navigate("/home");
+        navigate("/cover");
     } catch (error) {
         // Handle error here, maybe show an error message
     }
@@ -23,7 +23,7 @@ const handleRegister = async () => {
   try {
       await RegisterAPI(email,password);
       // Sign-in was successful, you can navigate or perform other actions
-      navigate("/home");
+      navigate("/cover");
   } catch (error) {
       // Handle error here, maybe show an error message
   }

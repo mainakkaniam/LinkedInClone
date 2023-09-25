@@ -67,16 +67,16 @@ const PostReader = () => {
       </div>
       <div className="border" style={{height: "1px",backgroundColor: "grey",marginTop: "28px",marginBottom: "10px"}} />
       <div className="icons" style={{ width: "100%" }}>
-        <div><ThumbUpAltOutlinedIcon fontSize="large" />
+        <div><ThumbUpAltOutlinedIcon fontSize="large" sx={{color:"grey"}} />
               Like
         </div>
-        <div><MessageOutlinedIcon fontSize="large" />
+        <div><MessageOutlinedIcon fontSize="large" sx={{color:"grey"}}/>
              Comment
         </div>
-        <div><RepeatOutlinedIcon fontSize="large" />
+        <div><RepeatOutlinedIcon fontSize="large" sx={{color:"grey"}}/>
         Repost
         </div>
-        <div><SendOutlinedIcon fontSize="large" />
+        <div><SendOutlinedIcon fontSize="large" sx={{color:"grey"}}/>
         Share
         </div>
       </div>

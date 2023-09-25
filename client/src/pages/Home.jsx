@@ -12,16 +12,41 @@ const Home = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        //user is signed in
-        setTimeout(() => {
-          setLoading(false)
-        }, 1000);
+        // User is signed in
+        // Create the request body
+        const requestBody = {
+          email: user.email,
+          _id: user.email, // Assuming user.uid contains the user's unique ID
+        };
+        // Make a POST request using the Fetch API
+        fetch('http://localhost:3001/api/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(requestBody),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // Handle the response as needed
+            setTimeout(() => {
+              setLoading(false);
+            }, 1000);
+          })
+          .catch((error) => {
+            setLoading(false); // Handle the error and setLoading(false) accordingly
+          });
       } else {
         // User is signed out
         navigate("/login");
       }
-    })}, [])
-  
+    });
+  }, []);
 
   return (
     <div>
